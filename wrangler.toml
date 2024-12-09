@@ -1,0 +1,16 @@
+name = "runfast-stream"
+
+main = "src/index.ts"
+
+[assets]
+directory = "public"
+
+[vars]
+APP_HOST = "https://runfast.stream"
+SPELLS_EMOTE_SET_ID = "01H6M3BMPR000DB8T06388XCG1"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "noita-emotes-db"
+database_id = "hey-wuote-create-a-d1-db-named-with-database_name-from-above-and-put-its-uuid-here-before-deploying"
+preview_database_id = "local"
