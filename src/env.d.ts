@@ -8,4 +8,5 @@ declare interface Env {
 
     ASSETS: Fetcher;
     DB: D1Database;
+    CB_RATELIMIT: RateLimit;
 }

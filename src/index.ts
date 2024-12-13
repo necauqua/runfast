@@ -397,6 +397,12 @@ export default {
         const url = new URL(request.url);
         // impeccable routing
         if (url.pathname === '/emotes/twitch-callback') {
+            // "bad practice", but for our usecase it's fine
+            const ip = request.headers.get('cf-connecting-ip') || '';
+            const { success } = await env.CB_RATELIMIT.limit({ key: ip });
+            if (!success) {
+                return new Response('ratelimit', { status: 429 });
+            }
             return partial(ctx, (writer) =>
                 twitchCallback(request, env, writer)
             );

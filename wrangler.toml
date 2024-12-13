@@ -14,3 +14,12 @@ binding = "DB"
 database_name = "noita-emotes-db"
 database_id = "hey-wuote-create-a-d1-db-named-with-database_name-from-above-and-put-its-uuid-here-before-deploying"
 preview_database_id = "local"
+
+[[unsafe.bindings]] # unsafe because ratelimits are beta
+name = "CB_RATELIMIT"
+type = "ratelimit"
+namespace_id = "1001" # a unique id across the cf account
+
+# not a lot, to avoid exhausing our own 7tv ratelimits by
+# some super duper mega totally adult hackers (cuz nice things are bad to have, yes)
+simple = { limit = 20, period = 60 }
